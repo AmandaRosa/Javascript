@@ -10,6 +10,7 @@ function adicionarItem(item){
     valorTotal[item] = qtd[item] * Number.parseFloat(valorProduto[item]);
     quantidade.innerHTML = qtd[item];
     total.innerHTML = valorTotal[item].toFixed(2); //duas casas decimais no preço
+    calculaSubtotal();
 }
 
 function removerItem(item){
@@ -21,9 +22,19 @@ function removerItem(item){
         valorTotal[item] = qtd[item] * Number.parseFloat(valorProduto[item]);
         quantidade.innerHTML = qtd[item];
         total.innerHTML = valorTotal[item].toFixed(2); //duas casas decimais no preço
+        calculaSubtotal();
     }
 }
 
 function calculaSubtotal(){
+    var valorTotalCompra = document.getElementById('valorTotalCompra');
+    var valor = 0;
+
+    for (var i=0; i<valorTotal.length; i++){
+        valor +=valorTotal[i];
+        console.log(valor);
+    }
+
+    valorTotalCompra.innerHTML = valor.toFixed(2);
 
 }
